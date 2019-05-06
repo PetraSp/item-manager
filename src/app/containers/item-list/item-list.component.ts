@@ -8,8 +8,7 @@ import { IItem } from '../../models/item';
   styleUrls: ['./item-list.component.css']
 })
 export class ItemListComponent implements OnInit {
-
-  items: IItem[] = [];
+  public items: IItem[] = [];
 
   constructor(private itemService: ItemService) {
   }

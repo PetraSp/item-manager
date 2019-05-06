@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ItemListComponent } from './containers/item-list/item-list.component';
 import { ItemDetailComponent } from './components/item-detail/item-detail.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MaterialModule } from './shared/material.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

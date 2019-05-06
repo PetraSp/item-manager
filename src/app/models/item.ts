@@ -3,5 +3,5 @@ export interface IItem {
   description: string;
   price: number;
   email: string;
-  imageUrl: string;
+  image: string;
 }
