@@ -1,0 +1,25 @@
+<form class="search-form" novalidate [formGroup]="searchForm">
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>Filter</mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-form-field class="search-field" >
+        <input matInput placeholder="Title" type="text" formControlName="title">
+      </mat-form-field>
+      <mat-form-field class="search-field" >
+        <input matInput placeholder="Description" type="text" formControlName="description">
+      </mat-form-field>
+      <mat-form-field class="search-field" >
+        <input matInput placeholder="Price" type="text" formControlName="price">
+      </mat-form-field>
+      <mat-form-field class="search-field" >
+        <input matInput placeholder="Email" type="text" formControlName="email">
+      </mat-form-field>
+      <button mat-raised-button class="search-btn" color="primary" (click)="onSearch($event)">Search</button>
+    </mat-expansion-panel>
+  </mat-accordion>
+</form>
+
+
+

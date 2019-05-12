@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { IItemsJSON } from '../models/itemsJSON';
-import { Observable, throwError} from 'rxjs';
-
+import { Observable, throwError } from 'rxjs';
 
 
 @Injectable({
@@ -12,13 +11,14 @@ import { Observable, throwError} from 'rxjs';
 export class ItemService {
   private itemUrl = 'api/data/items.json';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getItems(): Observable<IItemsJSON> {
-    return this.http.get<IItemsJSON>(this.itemUrl).pipe(
-      tap(data => console.log('All: ' + JSON.stringify(data))),
-      catchError(this.handleError)
-    );
+    return this.http
+      .get<IItemsJSON>(this.itemUrl)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   private handleError(err: HttpErrorResponse) {

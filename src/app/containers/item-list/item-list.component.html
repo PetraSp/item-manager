@@ -1,27 +1,6 @@
 <div>
-<!--<app-search-form [items] = "items"></app-search-form>-->
-
-<mat-expansion-panel [expanded]="true">
-  <mat-expansion-panel-header>
-    <h4>Filtered by: {{listFilter}}</h4>
-    <mat-panel-title>Filter</mat-panel-title>
-  </mat-expansion-panel-header>
-  <mat-form-field>
-    <input matInput placeholder="Title" [(ngModel)]='listFilter'>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Description" [(ngModel)]='listFilter'>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Price" [(ngModel)]='listFilter'>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Email" [(ngModel)]='listFilter'>
-  </mat-form-field>
-</mat-expansion-panel>
-
-<div class="item-container">
-  <app-item-detail *ngFor='let item of filteredItems' [item]="item"></app-item-detail>
-</div>
-
+  <app-search-form [items] = "items" (onSearchClick)="filterItems($event)"></app-search-form>
+  <div class="item-container">
+    <app-item-detail *ngFor='let item of filteredItems' [item]="item"></app-item-detail>
+  </div>
 </div>
