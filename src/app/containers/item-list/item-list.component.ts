@@ -10,7 +10,14 @@ import { IItem } from '../../models/item';
 export class ItemListComponent implements OnInit {
   public items: IItem[] = [];
   public filteredItems: IItem[] = [];
+  public selected;
 
+  options: any[] = [
+    {value: 'title', viewValue: 'Title'},
+    {value: 'description', viewValue: 'Description'},
+    {value: 'price', viewValue: 'Price'},
+    {value: 'email', viewValue: 'Email'}
+  ];
   constructor(private itemService: ItemService) {}
 
   ngOnInit() {
@@ -47,4 +54,9 @@ export class ItemListComponent implements OnInit {
   private filterFor(itemField: string, filterField: string) {
     return !this.skipEmptyFilter(filterField) || this.matchItemField(itemField, filterField);
   }
+
+  public onChange(value) {
+    this.selected = value;
+  }
+
 }
