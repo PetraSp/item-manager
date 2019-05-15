@@ -12,13 +12,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { OrderbyFormComponent } from './components/orderby-form/orderby-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemListComponent,
     ItemDetailComponent,
-    SearchFormComponent
+    SearchFormComponent,
+    OrderbyFormComponent
   ],
   imports: [
     BrowserModule,
