@@ -10,9 +10,9 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatSelectModule,
-  MatRippleModule
+  MatSliderModule,
+  MatRippleModule,
 } from '@angular/material';
-
 
 @NgModule({
   imports: [
@@ -23,6 +23,7 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatSliderModule,
     MatRippleModule
   ],
   exports: [
@@ -33,6 +34,7 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatSliderModule,
     MatRippleModule
   ]
 })

@@ -11,6 +11,8 @@ export class ItemListComponent implements OnInit {
   public items: IItem[] = [];
   public filteredItems: IItem[] = [];
   public selected;
+  public minPrice = 0;
+  public maxPrice = null;
 
   constructor(private itemService: ItemService) {}
 
@@ -23,21 +25,19 @@ export class ItemListComponent implements OnInit {
   }
 
   public filterItems(filterBody): void {
-    console.log(filterBody);
-    this.filteredItems = this.filteredItems.filter(item =>
-      this.filterFor(item.title, filterBody.title));
-
-    this.filteredItems = this.filteredItems.filter(item =>
-      this.filterFor(item.description, filterBody.description));
-
-    this.filteredItems = this.filteredItems.filter(item =>
-      this.filterFor(item.price.toString(), filterBody.price));
-
-    this.filteredItems = this.filteredItems.filter(item =>
-      this.filterFor(item.email, filterBody.email));
+    this.filteredItems = this.items.filter(item => (
+        this.filterFor(item.title, filterBody.title) &&
+        this.filterFor(item.description, filterBody.description) &&
+        this.filterFor(item.email, filterBody.email) &&
+        this.filterFor(item.price, filterBody.price)
+      )
+    );
   }
 
-  private matchItemField(itemField: string, filterField: string) {
+  private matchItemField(itemField: string, filterField: string | number) {
+    if (typeof(filterField) === 'number') {
+      return Number(itemField) >= filterField;
+    }
     return itemField.toLowerCase().indexOf(filterField.toLowerCase()) > -1;
   }
 
@@ -45,8 +45,8 @@ export class ItemListComponent implements OnInit {
     return filterField.length > 0;
   }
 
-  private filterFor(itemField: string, filterField: string) {
-    return !this.skipEmptyFilter(filterField) || this.matchItemField(itemField, filterField);
+  private filterFor(itemField: string, filterField: string | number) {
+    return !this.skipEmptyFilter(filterField.toString()) || this.matchItemField(itemField, filterField);
   }
 
   public orderList(value): void {
