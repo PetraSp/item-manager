@@ -7,12 +7,14 @@ import { IItem } from '../../models/item';
   templateUrl: './item-list.component.html',
   styleUrls: ['./item-list.component.css']
 })
+
 export class ItemListComponent implements OnInit {
   public items: IItem[] = [];
   public filteredItems: IItem[] = [];
   public selected;
   public minPrice = 0;
   public maxPrice = null;
+  public priceOfItems;
 
   constructor(private itemService: ItemService) {}
 
@@ -21,7 +23,15 @@ export class ItemListComponent implements OnInit {
       .subscribe((itemsData) => {
         this.items = itemsData.items;
         this.filteredItems = this.items;
+        console.log(this.filteredItems);
       });
+    this.priceOfItems = this.filteredItems.map(item => {
+      return item.price;
+    });
+    this.minPrice = Number(this.priceOfItems.sort((a, b) => a - b)[0]);
+    console.log(this.minPrice);
+    this.maxPrice = Number(this.priceOfItems.sort((a, b) => a - b)[this.priceOfItems.length - 1]);
+    console.log(this.maxPrice);
   }
 
   public filterItems(filterBody): void {
@@ -29,28 +39,30 @@ export class ItemListComponent implements OnInit {
         this.filterFor(item.title, filterBody.title) &&
         this.filterFor(item.description, filterBody.description) &&
         this.filterFor(item.email, filterBody.email) &&
-        this.filterFor(item.price, filterBody.price)
-      )
+        this.filterFor(item.price, filterBody.minPrice, filterBody.maxPrice),
+        console.log(item.price, filterBody.minPrice, filterBody.maxPrice)
+      ),
     );
   }
 
-  private matchItemField(itemField: string, filterField: string | number) {
-    if (typeof(filterField) === 'number') {
-      return Number(itemField) >= filterField;
-    }
-    return itemField.toLowerCase().indexOf(filterField.toLowerCase()) > -1;
+  private matchItemField(itemField: string, filterField: string | number, filterField2?: string | number) {
+    if ((typeof(filterField || filterField2) === 'number') &&
+      (this.minPrice <= filterField && filterField2 <= this.maxPrice)) {
+        return Number(itemField) >= filterField;
+      }
+    return itemField.toLowerCase().indexOf(filterField.toString().toLowerCase()) > -1;
   }
 
   private skipEmptyFilter(filterField: string) {
     return filterField.length > 0;
   }
 
-  private filterFor(itemField: string, filterField: string | number) {
-    return !this.skipEmptyFilter(filterField.toString()) || this.matchItemField(itemField, filterField);
+  private filterFor(itemField: string, filterField: string | number, filterField2?: string | number) {
+    return !this.skipEmptyFilter(filterField.toString()) || this.matchItemField(itemField, filterField, filterField2);
   }
 
   public orderList(value): void {
       this.selected = value;
   }
-
 }
+

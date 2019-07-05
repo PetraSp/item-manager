@@ -14,7 +14,8 @@ export class SearchFormComponent implements OnInit {
   public searchForm: FormGroup;
   title: AbstractControl;
   description: AbstractControl;
-  price: AbstractControl;
+  minPrice: AbstractControl;
+  maxPrice: AbstractControl;
   email: AbstractControl;
 
   constructor(private fb: FormBuilder) {}
@@ -23,18 +24,21 @@ export class SearchFormComponent implements OnInit {
     this.searchForm = this.fb.group({
       title: '',
       description: '',
-      price: '',
+      minPrice: '',
+      maxPrice: '',
       email: '',
     });
 
     this.title = this.searchForm.get('title').value;
     this.description = this.searchForm.get('description').value;
-    this.price = this.searchForm.get('price').value;
+    this.minPrice = this.searchForm.get('minPrice').value;
+    this.maxPrice = this.searchForm.get('maxPrice').value;
     this.email = this.searchForm.get('email').value;
   }
 
   onSearch(): void {
     const filterBody = this.searchForm.value;
     this.onSearchClick.emit(filterBody);
+    console.log(filterBody);
   }
 }
