@@ -2,8 +2,12 @@
   <app-search-form [items] = "items" (onSearchClick)="filterItems($event)"></app-search-form>
   <app-orderby-form [filteredItems]="filteredItems" [items]="items" (onSelected)="orderList($event)"></app-orderby-form>
 
+  <div>
+    <button mat-button (click)="openDialog()">My favorite list</button>
+  </div>
+
   <div *ngIf=!selected class="item-container">
-    <app-item-detail *ngFor='let item of filteredItems' [item]="item"></app-item-detail>
+    <app-item-detail *ngFor='let item of filteredItems' [item]="item" (onAddToFavorites)="favorites($event)"></app-item-detail>
   </div>
 </div>
 

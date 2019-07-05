@@ -6,7 +6,9 @@
   </mat-card-header>
   <img mat-card-md-image src="assets/images/{{item.image}}">
   <mat-card-content>
-    <strong>{{item.price}}</strong>
     <p>{{item.email}}</p>
+    <button mat-raised-button (click)="addToFavorites(item.title, item.image)">
+      <mat-icon>favorite_border</mat-icon>
+    </button>
   </mat-card-content>
 </mat-card>

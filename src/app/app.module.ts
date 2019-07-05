@@ -9,10 +9,13 @@ import { ItemDetailComponent } from './components/item-detail/item-detail.compon
 import { SearchFormComponent } from './components/search-form/search-form.component';
 
 import { HttpClientModule } from '@angular/common/http';
+
 import { MaterialModule } from './shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OrderbyFormComponent } from './components/orderby-form/orderby-form.component';
+import { FavoriteListComponent } from './components/favorite-list/favorite-list.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -20,8 +23,14 @@ import { OrderbyFormComponent } from './components/orderby-form/orderby-form.com
     ItemListComponent,
     ItemDetailComponent,
     SearchFormComponent,
-    OrderbyFormComponent
+    OrderbyFormComponent,
+    FavoriteListComponent
   ],
+
+  entryComponents: [
+    FavoriteListComponent
+  ],
+
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -29,7 +38,8 @@ import { OrderbyFormComponent } from './components/orderby-form/orderby-form.com
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

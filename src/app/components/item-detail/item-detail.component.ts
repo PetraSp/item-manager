@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { IItem } from '../../models/item';
 
 @Component({
@@ -8,9 +8,18 @@ import { IItem } from '../../models/item';
 })
 export class ItemDetailComponent implements OnInit {
   @Input() item: IItem[];
+  @Output() onAddToFavorites = new EventEmitter<any>();
   constructor() { }
 
   ngOnInit() {
   }
 
+  addToFavorites(favoriteTitle, favoritePhoto): void {
+    const favorite = {
+      itemTitle: favoriteTitle,
+      itemPhoto: favoritePhoto,
+    };
+    this.onAddToFavorites.emit(favorite);
+  }
 }
+

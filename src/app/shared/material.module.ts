@@ -9,6 +9,7 @@ import {
   MatExpansionModule,
   MatFormFieldModule,
   MatInputModule,
+  MatIconModule,
   MatSelectModule,
   MatSliderModule,
   MatRippleModule,
@@ -22,6 +23,7 @@ import {
     MatExpansionModule,
     MatFormFieldModule,
     MatInputModule,
+    MatIconModule,
     MatSelectModule,
     MatSliderModule,
     MatRippleModule
@@ -33,6 +35,7 @@ import {
     MatExpansionModule,
     MatFormFieldModule,
     MatInputModule,
+    MatIconModule,
     MatSelectModule,
     MatSliderModule,
     MatRippleModule
