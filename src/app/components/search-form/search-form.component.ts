@@ -39,6 +39,5 @@ export class SearchFormComponent implements OnInit {
   onSearch(): void {
     const filterBody = this.searchForm.value;
     this.onSearchClick.emit(filterBody);
-    console.log(filterBody);
   }
 }
