@@ -3,13 +3,7 @@ import { ItemService } from '../item.service';
 import { IItem } from '../../models/item';
 import { FavoriteListComponent } from '../../components/favorite-list/favorite-list.component';
 import { MatDialog } from '@angular/material';
-
-
-export interface Favorite {
-  id: number;
-  title: string;
-  photo: string;
-}
+import { Favorite } from '../../models/favoriteItems';
 
 @Component({
   selector: 'app-item-list',
@@ -25,10 +19,6 @@ export class ItemListComponent implements OnInit {
   public maxPrice = null;
   public priceOfItems;
   public favorites: Favorite[] = [];
-  public favoriteItems;
-  public id: string;
-  public title: string;
-  public photo: string;
 
   constructor(@Inject(ItemService) private itemService: ItemService, public dialog: MatDialog) {}
 
@@ -95,10 +85,6 @@ export class ItemListComponent implements OnInit {
       data: {
         favoriteItems: this.favorites
       }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
     });
   }
 }

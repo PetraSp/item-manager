@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
-
+import {FavoriteItems} from '../../models/favoriteItems';
 
 @Component({
   selector: 'app-favorite-list',
@@ -12,13 +12,11 @@ export class FavoriteListComponent implements OnInit {
   public favoriteItems;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any) {
+    @Inject(MAT_DIALOG_DATA) public data: FavoriteItems) {
   }
 
-
   ngOnInit() {
-   this.favoriteItems = this.data;
-   console.log(this.favoriteItems);
+    this.favoriteItems = this.data.favoriteItems;
   }
 }
 
