@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import {FavoriteItems} from '../../models/favoriteItems';
 
@@ -18,6 +18,9 @@ export class FavoriteListComponent implements OnInit {
   ngOnInit() {
     this.favoriteItems = this.data.favoriteItems;
   }
-}
 
+  deleteItem(itemToDelete) {
+    this.favoriteItems = this.favoriteItems.filter(item => item.id !== itemToDelete);
+  }
+}
 

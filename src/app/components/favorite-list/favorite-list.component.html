@@ -1,4 +1,12 @@
-<div *ngFor="let favItem of favoriteItems">
+<h2 mat-dialog-title>My favorite items</h2>
+
+<mat-dialog-content *ngFor="let favItem of favoriteItems">
   <p>{{favItem.title}}</p>
   <img mat-card-md-image src="assets/images/{{favItem.photo}}">
-</div>
+
+  <mat-dialog-actions>
+    <button mat-raised-button (click)="deleteItem(favItem.id)">
+      <mat-icon>delete_forever</mat-icon>
+    </button>
+  </mat-dialog-actions>
+</mat-dialog-content>
