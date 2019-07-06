@@ -16,8 +16,8 @@ export class ItemDetailComponent implements OnInit {
 
   addToFavorites(favoriteTitle, favoritePhoto): void {
     const favorite = {
-      itemTitle: favoriteTitle,
-      itemPhoto: favoritePhoto,
+      title: favoriteTitle,
+      photo: favoritePhoto,
     };
     this.onAddToFavorites.emit(favorite);
   }

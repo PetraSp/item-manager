@@ -2,9 +2,11 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { ItemService } from '../item.service';
 import { IItem } from '../../models/item';
 import { FavoriteListComponent } from '../../components/favorite-list/favorite-list.component';
-import { MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material';
 
-export interface DialogData {
+
+export interface Favorite {
+  id: number;
   title: string;
   photo: string;
 }
@@ -22,7 +24,9 @@ export class ItemListComponent implements OnInit {
   public minPrice = 0;
   public maxPrice = null;
   public priceOfItems;
-
+  public favorites: Favorite[] = [];
+  public favoriteItems;
+  public id: string;
   public title: string;
   public photo: string;
 
@@ -74,16 +78,22 @@ export class ItemListComponent implements OnInit {
     this.selected = value;
   }
 
-  favorites(favorite) {
-    this.title = favorite.itemTitle;
-    this.photo = favorite.itemPhoto;
+  addToFavorites(favorite: Favorite) {
+      this.favorites = [
+        ...this.favorites,
+        {
+          id: this.favorites.length > 0 ? this.favorites[this.favorites.length  - 1].id + 1 : 1,
+          title: favorite.title,
+          photo: favorite.photo
+        }
+      ];
   }
-
   openDialog() {
     const dialogRef = this.dialog.open(FavoriteListComponent, {
+      height: '400px',
+      width: '600px',
       data: {
-        title: this.title,
-        photo: this.photo
+        favoriteItems: this.favorites
       }
     });
 
@@ -94,5 +104,4 @@ export class ItemListComponent implements OnInit {
 }
 
 
-// In the favourite modal, I want to be able to search by title and the possibility to remove the items
-// from the favourite list without having to close the modal.
+

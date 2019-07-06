@@ -7,7 +7,7 @@
   </div>
 
   <div *ngIf=!selected class="item-container">
-    <app-item-detail *ngFor='let item of filteredItems' [item]="item" (onAddToFavorites)="favorites($event)"></app-item-detail>
+    <app-item-detail *ngFor='let item of filteredItems' [item]="item" (onAddToFavorites)="addToFavorites($event)"></app-item-detail>
   </div>
 </div>
 
