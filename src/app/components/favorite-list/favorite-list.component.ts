@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import {Component, EventEmitter, Inject, OnInit, Output} from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import {FavoriteItems} from '../../models/favoriteItems';
 
@@ -10,6 +10,7 @@ import {FavoriteItems} from '../../models/favoriteItems';
 
 export class FavoriteListComponent implements OnInit {
   public favoriteItems;
+  @Output() onDeleteItem = new EventEmitter<any>();
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: FavoriteItems) {
@@ -21,6 +22,6 @@ export class FavoriteListComponent implements OnInit {
 
   deleteItem(itemToDelete) {
     this.favoriteItems = this.favoriteItems.filter(item => item.id !== itemToDelete);
+    this.onDeleteItem.emit(itemToDelete);
   }
 }
-

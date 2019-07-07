@@ -20,7 +20,8 @@ export class ItemListComponent implements OnInit {
   public priceOfItems;
   public favorites: Favorite[] = [];
 
-  constructor(@Inject(ItemService) private itemService: ItemService, public dialog: MatDialog) {}
+  constructor(@Inject(ItemService) private itemService: ItemService, public dialog: MatDialog) {
+  }
 
   ngOnInit() {
     this.itemService.getItems()
@@ -46,6 +47,7 @@ export class ItemListComponent implements OnInit {
       },
     );
   }
+
   private matchItemField(itemField: string, filterField: string | number, fieldName: string) {
     if (fieldName === 'minPrice' && this.minPrice <= filterField) {
       return Number(itemField) >= filterField;
@@ -69,15 +71,21 @@ export class ItemListComponent implements OnInit {
   }
 
   addToFavorites(favorite: Favorite) {
-      this.favorites = [
-        ...this.favorites,
-        {
-          id: this.favorites.length > 0 ? this.favorites[this.favorites.length  - 1].id + 1 : 1,
-          title: favorite.title,
-          photo: favorite.photo
-        }
-      ];
+    this.favorites = [
+      ...this.favorites,
+      {
+        id: this.favorites.length > 0 ? this.favorites[this.favorites.length - 1].id + 1 : 1,
+        title: favorite.title,
+        photo: favorite.photo
+      }
+    ];
   }
+
+  removeFavorites(id: number) {
+    this.favorites = [
+      ...this.favorites.filter(item => item.id !== id)];
+  }
+
   openDialog() {
     const dialogRef = this.dialog.open(FavoriteListComponent, {
       height: '400px',
@@ -86,8 +94,13 @@ export class ItemListComponent implements OnInit {
         favoriteItems: this.favorites
       }
     });
+    const sub = dialogRef.componentInstance.onDeleteItem.subscribe((id) => {
+      this.removeFavorites(id);
+    });
+    dialogRef.afterClosed().subscribe(() => {
+      sub.unsubscribe();
+    });
   }
+
 }
-
-
 
