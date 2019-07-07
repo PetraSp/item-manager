@@ -6,10 +6,10 @@
     <button mat-button (click)="openDialog()">My favorite list</button>
   </div>
 
+
   <div *ngIf=!selected class="item-container">
-    <app-item-detail *ngFor='let item of filteredItems' [item]="item" (onAddToFavorites)="addToFavorites($event)"></app-item-detail>
+    <virtual-scroller #scroll [items]="filteredItems">
+    <app-item-detail *ngFor='let item of scroll.viewPortItems' [item]="item" (onAddToFavorites)="addToFavorites($event)"></app-item-detail>
+    </virtual-scroller>
   </div>
 </div>
-
-
-

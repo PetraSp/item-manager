@@ -1,10 +1,9 @@
 <h2 mat-dialog-title>My favorite items</h2>
 <p>Search by title:</p>
-<form class="favorite-form" novalidate [formGroup]="favoriteForm">
-  <mat-form-field class="search-field" >
-    <input matInput [(ngModel)]="searchText" autocomplete="off" placeholder="Title" type="text" formControlName="title">
-  </mat-form-field>
-</form>
+<mat-form-field class="search-field">
+  <input matInput [(ngModel)]="searchText" autocomplete="off" placeholder="Title" type="text">
+</mat-form-field>
+
 <mat-dialog-content *ngFor="let favItem of favoriteItems | filter:searchText">
   <p>{{favItem.title}}</p>
   <img mat-card-md-image src="assets/images/{{favItem.photo}}">

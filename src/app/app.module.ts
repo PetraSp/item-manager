@@ -17,7 +17,7 @@ import { OrderbyFormComponent } from './components/orderby-form/orderby-form.com
 import { FavoriteListComponent } from './components/favorite-list/favorite-list.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
+import { VirtualScrollerModule } from 'ngx-virtual-scroller';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ReactiveFormsModule,
     MaterialModule,
     MatDialogModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    VirtualScrollerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
