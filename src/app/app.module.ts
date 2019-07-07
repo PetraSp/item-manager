@@ -16,6 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OrderbyFormComponent } from './components/orderby-form/orderby-form.component';
 import { FavoriteListComponent } from './components/favorite-list/favorite-list.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    MatDialogModule
+    MatDialogModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

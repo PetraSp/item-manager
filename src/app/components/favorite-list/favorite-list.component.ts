@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Inject, OnInit, Output} from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
-import {FavoriteItems} from '../../models/favoriteItems';
+import { FavoriteItems } from '../../models/favoriteItems';
+import {AbstractControl, FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-favorite-list',
@@ -11,9 +12,12 @@ import {FavoriteItems} from '../../models/favoriteItems';
 export class FavoriteListComponent implements OnInit {
   public favoriteItems;
   @Output() onDeleteItem = new EventEmitter<any>();
+  public favoriteForm: FormGroup;
+  title: AbstractControl;
+  public searchText;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: FavoriteItems) {
+    @Inject(MAT_DIALOG_DATA) public data: FavoriteItems, private fb: FormBuilder) {
   }
 
   ngOnInit() {
@@ -25,3 +29,4 @@ export class FavoriteListComponent implements OnInit {
     this.onDeleteItem.emit(itemToDelete);
   }
 }
+

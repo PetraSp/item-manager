@@ -20,8 +20,7 @@ export class ItemListComponent implements OnInit {
   public priceOfItems;
   public favorites: Favorite[] = [];
 
-  constructor(@Inject(ItemService) private itemService: ItemService, public dialog: MatDialog) {
-  }
+  constructor(@Inject(ItemService) private itemService: ItemService, public dialog: MatDialog) {}
 
   ngOnInit() {
     this.itemService.getItems()
