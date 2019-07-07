@@ -22,6 +22,11 @@ export class FavoriteListComponent implements OnInit {
 
   ngOnInit() {
     this.favoriteItems = this.data.favoriteItems;
+    this.favoriteForm = this.fb.group({
+      title: '',
+    });
+
+    this.title = this.favoriteForm.get('title').value;
   }
 
   deleteItem(itemToDelete) {
@@ -29,4 +34,3 @@ export class FavoriteListComponent implements OnInit {
     this.onDeleteItem.emit(itemToDelete);
   }
 }
-
