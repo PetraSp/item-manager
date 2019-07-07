@@ -71,6 +71,10 @@ export class ItemListComponent implements OnInit {
   }
 
   addToFavorites(favorite: Favorite) {
+    const favTitles = this.favorites.map(item => item.title)
+    if (favTitles.includes(favorite.title)) {
+      return;
+    }
     this.favorites = [
       ...this.favorites,
       {
