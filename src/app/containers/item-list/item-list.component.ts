@@ -62,7 +62,7 @@ export class ItemListComponent implements OnInit {
   }
 
   private filterFor(itemField: string, filterField: string | number, fieldName: string) {
-    return !this.skipEmptyFilter(filterField.toString()) || this.matchItemField(itemField, filterField, fieldName);
+    return filterField === null || !this.skipEmptyFilter(filterField.toString()) || this.matchItemField(itemField, filterField, fieldName);
   }
 
   public orderList(value): void {
