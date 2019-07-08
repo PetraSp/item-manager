@@ -14,7 +14,6 @@ import { Favorite } from '../../models/favoriteItems';
 export class ItemListComponent implements OnInit {
   public items: IItem[] = [];
   public filteredItems: IItem[] = [];
-  public selected;
   public minPrice = 0;
   public maxPrice = null;
   public priceOfItems;
@@ -66,7 +65,11 @@ export class ItemListComponent implements OnInit {
   }
 
   public orderList(value): void {
-    this.selected = value;
+    if (value === 'price') {
+      this.filteredItems = [...this.filteredItems.sort((a, b) => a[value] - b[value])];
+    } else {
+      this.filteredItems = [...this.filteredItems.sort((a, b) => a[value].localeCompare(b[value]))];
+    }
   }
 
   addToFavorites(favorite: Favorite) {

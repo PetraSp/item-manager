@@ -6,7 +6,7 @@
     </div>
   </div>
 
-  <div *ngIf=!selected class="item-container">
+  <div class="item-container">
     <virtual-scroller bufferAmount={5} #scroll [items]="filteredItems" class="item-list">
     <app-item-detail *ngFor='let item of scroll.viewPortItems' [item]="item" (onAddToFavorites)="addToFavorites($event)"></app-item-detail>
     </virtual-scroller>
@@ -18,9 +18,6 @@
   </button>
 
 </div>
-
-
-
 
 
 

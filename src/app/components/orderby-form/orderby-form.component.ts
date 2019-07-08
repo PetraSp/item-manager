@@ -10,7 +10,6 @@ export class OrderbyFormComponent implements OnInit {
   @Input() items: IItem[];
   @Input() filteredItems: IItem[];
   @Output() onSelected = new EventEmitter<any>();
-  public selected;
 
   options: any[] = [
     {value: null, viewValue: 'Please select'},
@@ -26,7 +25,7 @@ export class OrderbyFormComponent implements OnInit {
   }
 
   public onChange(value) {
-    this.selected = value;
     this.onSelected.emit(value);
   }
 }
+

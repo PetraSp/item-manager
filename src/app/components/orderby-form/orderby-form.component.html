@@ -4,26 +4,3 @@
   </mat-select>
 </mat-form-field>
 
-<div *ngIf="selected === 'title'">
-  <div *ngFor="let item of filteredItems">
-    <span>{{item.title}}</span>
-  </div>
-</div>
-
-<div *ngIf="selected === 'description'">
-  <div *ngFor="let item of filteredItems">
-    <span>{{item.description}}</span>
-  </div>
-</div>
-
-<div *ngIf="selected === 'price'">
-  <div *ngFor="let item of filteredItems">
-    <span>{{item.price}}</span>
-  </div>
-</div>
-
-<div *ngIf="selected === 'email'">
-  <div *ngFor="let item of filteredItems">
-    <span>{{item.email}}</span>
-  </div>
-</div>
