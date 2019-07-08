@@ -48,3 +48,19 @@ item-list {
   bottom: 4px;
   font-size: 35px;
 }
+
+
+@media only screen and (min-width: 1200px) {
+
+  ::ng-deep .scrollable-content {
+    display: flex;
+    margin-top: 100px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .my-favorites {
+    bottom: 40px;
+    right: 40px;
+  }
+}

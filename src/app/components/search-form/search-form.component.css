@@ -1,4 +1,28 @@
-.search-form {
-  width: 640px;
-  max-width: 100%;
+.search-info {
+  position: sticky;
+  z-index: 500;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-fields {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: auto;
+}
+
+.search-field {
+  display: block;
+  margin: 0 20px 20px 20px;
+}
+
+.search-btn {
+  align-self: center;
+}
+
+@media only screen and (min-width: 1200px) {
+  .search-info {
+    flex-direction: row;
+  }
 }
