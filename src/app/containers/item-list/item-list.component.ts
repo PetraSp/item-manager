@@ -18,6 +18,7 @@ export class ItemListComponent implements OnInit {
   public maxPrice = null;
   public priceOfItems;
   public favorites: Favorite[] = [];
+  public favoriteTitles: string [];
 
   constructor(@Inject(ItemService) private itemService: ItemService, public dialog: MatDialog) {}
 
@@ -85,11 +86,13 @@ export class ItemListComponent implements OnInit {
         photo: favorite.photo
       }
     ];
+    this.favoriteTitles = this.favorites.map(item => item.title);
   }
 
   removeFavorites(id: number) {
     this.favorites = [
       ...this.favorites.filter(item => item.id !== id)];
+    this.favoriteTitles = this.favorites.map(fav => fav.title);
   }
 
   openDialog() {

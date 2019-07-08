@@ -49,6 +49,16 @@ item-list {
   font-size: 35px;
 }
 
+.options {
+  margin-left: 10px;
+}
+/*.options {*/
+  /*display: none;*/
+  /*position: absolute;*/
+  /*z-index: 501;*/
+  /*right: 50px;*/
+  /*top: 50px;*/
+/*}*/
 
 @media only screen and (min-width: 1200px) {
 
@@ -62,5 +72,9 @@ item-list {
   .my-favorites {
     bottom: 40px;
     right: 40px;
+  }
+
+  .options {
+    margin-left: 10px;
   }
 }
