@@ -1,15 +1,28 @@
 <div>
-  <app-search-form [items] = "items" (onSearchClick)="filterItems($event)"></app-search-form>
-  <app-orderby-form [filteredItems]="filteredItems" [items]="items" (onSelected)="orderList($event)"></app-orderby-form>
-
   <div>
-    <button mat-button (click)="openDialog()">My favorite list</button>
+    <app-search-form [items] = "items" (onSearchClick)="filterItems($event)"></app-search-form>
+    <div class="options">
+      <app-orderby-form [filteredItems]="filteredItems" [items]="items" (onSelected)="orderList($event)"></app-orderby-form>
+    </div>
   </div>
 
-
   <div *ngIf=!selected class="item-container">
-    <virtual-scroller #scroll [items]="filteredItems">
+    <virtual-scroller bufferAmount={5} #scroll [items]="filteredItems" class="item-list">
     <app-item-detail *ngFor='let item of scroll.viewPortItems' [item]="item" (onAddToFavorites)="addToFavorites($event)"></app-item-detail>
     </virtual-scroller>
   </div>
+
+  <button class="my-favorites" mat-fab (click)="openDialog()">
+    <span class="favorite-counter" *ngIf="favoriteTitles?.length > 0">{{favoriteTitles.length}}</span>
+    <mat-icon class="favorite-icon">favorite</mat-icon>
+  </button>
+
 </div>
+
+
+
+
+
+
+
+
