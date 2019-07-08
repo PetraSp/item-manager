@@ -1,17 +1,22 @@
 <h2 mat-dialog-title>My favorite items</h2>
-<p>Search by title:</p>
-<mat-form-field class="search-field">
-  <input matInput [(ngModel)]="searchText" autocomplete="off" placeholder="Title" type="text">
-</mat-form-field>
 
-<mat-dialog-content *ngFor="let favItem of favoriteItems | filter:searchText">
-  <p>{{favItem.title}}</p>
-  <img mat-card-md-image src="assets/images/{{favItem.photo}}">
+<div class="fav-search-fields">
+  <p class="fav-search-title">Search by title:</p>
+  <mat-form-field class="fav-search-field">
+    <input matInput [(ngModel)]="searchText" autocomplete="off" placeholder="Title" type="text">
+  </mat-form-field>
+</div>
 
-  <mat-dialog-actions>
-    <button mat-raised-button (click)="deleteItem(favItem.id)">
+<div class="fav-list">
+  <mat-dialog-content class="fav-item-info" *ngFor="let favItem of favoriteItems | filter:searchText">
+    <p>{{favItem.title}}</p>
+    <img mat-card-md-image src="assets/images/{{favItem.photo}}">
+    <button class="delete-fav-btn" mat-raised-button (click)="deleteItem(favItem.id)">
       <mat-icon>delete_forever</mat-icon>
     </button>
-  </mat-dialog-actions>
+  </mat-dialog-content>
+</div>
 
-</mat-dialog-content>
+
+
+

@@ -91,8 +91,8 @@ export class ItemListComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(FavoriteListComponent, {
-      height: '400px',
-      width: '600px',
+      height: '80vh',
+      width: '80vw',
       data: {
         favoriteItems: this.favorites
       }

@@ -1,0 +1,30 @@
+.fav-search-fields {
+  display: flex;
+}
+
+.fav-search-title {
+  padding-top: 13px;
+}
+
+.fav-search-field {
+  margin-left: 20px;
+}
+
+.fav-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.fav-item-info {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+.delete-fav-btn {
+  margin: 20px;
+}
