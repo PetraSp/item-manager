@@ -8,6 +8,7 @@ import { IItem } from '../../models/item';
 })
 export class ItemDetailComponent implements OnInit {
   @Input() item: IItem[];
+  @Input() isFavorite: boolean;
   @Output() onAddToFavorites = new EventEmitter<any>();
   constructor() { }
 
@@ -22,4 +23,3 @@ export class ItemDetailComponent implements OnInit {
     this.onAddToFavorites.emit(favorite);
   }
 }
-

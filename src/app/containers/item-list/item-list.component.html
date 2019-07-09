@@ -8,7 +8,7 @@
 
   <div class="item-container">
     <virtual-scroller bufferAmount={5} #scroll [items]="filteredItems" class="item-list">
-    <app-item-detail *ngFor='let item of scroll.viewPortItems' [item]="item" (onAddToFavorites)="addToFavorites($event)"></app-item-detail>
+    <app-item-detail *ngFor='let item of scroll.viewPortItems' [item]="item" [isFavorite]="favoriteTitles && favoriteTitles.includes(item.title)" (onAddToFavorites)="addToFavorites($event)"></app-item-detail>
     </virtual-scroller>
   </div>
 

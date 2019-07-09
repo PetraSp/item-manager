@@ -50,17 +50,18 @@ item-list {
 }
 
 .options {
-  margin-left: 10px;
+  position: absolute;
+  background-color: white;
+  border-radius: 10px;
+  transform: scale(0.8);
+  padding: 0 10px;
+  z-index: 501;
+  left: 0;
+  bottom: 15px;
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
 }
-/*.options {*/
-  /*display: none;*/
-  /*position: absolute;*/
-  /*z-index: 501;*/
-  /*right: 50px;*/
-  /*top: 50px;*/
-/*}*/
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1440px) {
 
   ::ng-deep .scrollable-content {
     display: flex;
@@ -69,12 +70,22 @@ item-list {
     align-items: center;
   }
 
+  .search-info {
+    flex-direction: row;
+  }
+
   .my-favorites {
     bottom: 40px;
     right: 40px;
   }
 
   .options {
-    margin-left: 10px;
+    transform: none;
+    right: 50px;
+    top: 50px;
+    bottom: initial;
+    left: initial;
+    background-color: transparent;
+    box-shadow: none;
   }
 }

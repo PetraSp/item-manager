@@ -1,14 +1,12 @@
 <mat-card class="item-card">
-  <mat-card-header>
-    <mat-card-title>{{item.title}}</mat-card-title>
-    <mat-card-subtitle>{{item.description}}</mat-card-subtitle>
-    <mat-card-subtitle>{{item.price | currency:'EUR' : 'symbol' : '1.0' }}</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-md-image src="assets/images/{{item.image}}">
-  <mat-card-content>
-    <p>{{item.email}}</p>
-    <button mat-raised-button (click)="addToFavorites(item.title, item.image)">
-      <mat-icon>favorite_border</mat-icon>
+  <img class="item-img" mat-card-md-image src="assets/images/{{item.image}}">
+  <div class="item-content">
+    <mat-card-title>{{item.price | currency:'EUR' : 'symbol' : '1.0' }}</mat-card-title>
+    <span class="item-title">{{item.title}}</span>
+    <span class="item-desc">{{item.description}}</span>
+    <span>{{item.email}}</span>
+    <button class="item-fav" mat-raised-button (click)="addToFavorites(item.title, item.image)">
+      <mat-icon class="item-fav-btn">{{isFavorite ? 'favorite' : 'favorite_border'}}</mat-icon>
     </button>
-  </mat-card-content>
+  </div>
 </mat-card>
