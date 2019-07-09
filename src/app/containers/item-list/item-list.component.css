@@ -70,10 +70,6 @@ item-list {
     align-items: center;
   }
 
-  .search-info {
-    flex-direction: row;
-  }
-
   .my-favorites {
     bottom: 40px;
     right: 40px;
