@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchFormComponent } from './search-form.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import {ReactiveFormsModule} from '@angular/forms';
+
+
 
 describe('SearchFormComponent', () => {
   let component: SearchFormComponent;
@@ -8,7 +12,9 @@ describe('SearchFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchFormComponent ]
+      declarations: [ SearchFormComponent ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+      imports: [ ReactiveFormsModule ],
     })
     .compileComponents();
   }));
@@ -21,5 +27,21 @@ describe('SearchFormComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('onSearch', () => {
+    it('should call onSearchClick', () => {
+      const filterBody = {
+        description: '',
+        email: '',
+        maxPrice: '',
+        minPrice: '',
+        title: ''
+      };
+      // @ts-ignore
+      component.onSearchClick.emit = jest.fn();
+      component.onSearch();
+      expect(component.onSearchClick.emit).toHaveBeenCalledWith(filterBody);
+    });
   });
 });

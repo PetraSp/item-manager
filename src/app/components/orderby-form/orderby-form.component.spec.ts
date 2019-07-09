@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { OrderbyFormComponent } from './orderby-form.component';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 describe('OrderbyFormComponent', () => {
   let component: OrderbyFormComponent;
@@ -8,7 +9,8 @@ describe('OrderbyFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OrderbyFormComponent ]
+      declarations: [ OrderbyFormComponent ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
     .compileComponents();
   }));

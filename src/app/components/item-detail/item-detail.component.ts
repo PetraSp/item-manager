@@ -7,7 +7,7 @@ import { IItem } from '../../models/item';
   styleUrls: ['./item-detail.component.css']
 })
 export class ItemDetailComponent implements OnInit {
-  @Input() item: IItem[];
+  @Input() item: IItem;
   @Input() isFavorite: boolean;
   @Output() onAddToFavorites = new EventEmitter<any>();
   constructor() { }
