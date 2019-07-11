@@ -12,14 +12,14 @@ describe('FavoriteListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FavoriteListComponent ],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-      imports: [ Ng2SearchPipeModule, FormsModule ],
+      declarations: [FavoriteListComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      imports: [Ng2SearchPipeModule, FormsModule],
       providers: [
-        { provide: MAT_DIALOG_DATA, useValue: {} },
+        {provide: MAT_DIALOG_DATA, useValue: {}},
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -31,4 +31,29 @@ describe('FavoriteListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('FavoriteListComponent', () => {
+    it('delete items', () => {
+      const mockId = 2;
+      const itemToDelete = [{
+        id: 2,
+        title: 'hello',
+        photo: 'image.png',
+      }];
+      const favoriteItems = [
+        ...itemToDelete,
+        {
+          id: 1,
+          title: 'hello',
+          photo: 'image.png',
+        },
+      ];
+      component.onDeleteItem.emit = jest.fn();
+      component.favoriteItems = favoriteItems;
+      component.deleteItem(mockId);
+      expect(component.favoriteItems.length).toBe(1);
+      expect(component.onDeleteItem.emit).toBeCalledWith(mockId);
+    });
+  });
 });
+

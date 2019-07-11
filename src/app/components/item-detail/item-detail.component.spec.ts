@@ -31,4 +31,16 @@ describe('ItemDetailComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('when addToFavorites is called', () => {
+    it('should emit an onAddToFavorites event', () => {
+      const favorite = {
+        title: 'hello',
+        photo: 'image.png',
+      };
+      component.onAddToFavorites.emit = jest.fn();
+      component.addToFavorites(favorite.title, favorite.photo);
+      expect(component.onAddToFavorites.emit).toBeCalledWith(favorite);
+    });
+  });
 });

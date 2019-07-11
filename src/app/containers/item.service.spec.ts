@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ItemService } from './item.service';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 describe('Item.Service', () => {
   beforeEach(() => TestBed.configureTestingModule({
     providers: [
-      { provide: HttpClientModule, useValue: {} },
+      { provide: HttpClient, useValue: {} },
     ]
   }));
 

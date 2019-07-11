@@ -57,7 +57,7 @@ export class ItemListComponent implements OnInit {
     return itemField.toLowerCase().indexOf(filterField.toString().toLowerCase()) > -1;
   }
 
-  private skipEmptyFilter(filterField: string) {
+  public skipEmptyFilter(filterField: string) {
     return filterField.length > 0;
   }
 
@@ -74,7 +74,7 @@ export class ItemListComponent implements OnInit {
   }
 
   addToFavorites(favorite: Favorite) {
-    const favTitles = this.favorites.map(item => item.title)
+    const favTitles = this.favorites.map(item => item.title);
     if (favTitles.includes(favorite.title)) {
       return;
     }

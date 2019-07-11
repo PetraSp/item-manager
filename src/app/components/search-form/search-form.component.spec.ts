@@ -4,8 +4,6 @@ import { SearchFormComponent } from './search-form.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
 
-
-
 describe('SearchFormComponent', () => {
   let component: SearchFormComponent;
   let fixture: ComponentFixture<SearchFormComponent>;
@@ -38,7 +36,6 @@ describe('SearchFormComponent', () => {
         minPrice: '',
         title: ''
       };
-      // @ts-ignore
       component.onSearchClick.emit = jest.fn();
       component.onSearch();
       expect(component.onSearchClick.emit).toHaveBeenCalledWith(filterBody);

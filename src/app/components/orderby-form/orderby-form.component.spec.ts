@@ -24,4 +24,13 @@ describe('OrderbyFormComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('onChange', () => {
+    it('it should emit onSelected event', () => {
+      const value = 'title';
+      component.onSelected.emit = jest.fn();
+      component.onChange(value);
+      expect(component.onSelected.emit).toBeCalledWith(value);
+    });
+  });
 });
