@@ -25,7 +25,6 @@
     "jest-preset-angular": "^7.1.1",
     "ng2-search-filter": "^0.5.1",
     "ngx-virtual-scroller": "^3.0.2",
-    "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
   },
@@ -39,15 +38,7 @@
     "@types/jest": "^24.0.15",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
-    "jasmine-core": "~2.99.1",
-    "jasmine-spec-reporter": "~4.2.1",
     "jest": "^24.0.0",
-    "karma": "~4.0.0",
-    "karma-chrome-launcher": "~2.2.0",
-    "karma-coverage-istanbul-reporter": "~2.0.1",
-    "karma-jasmine": "~1.1.2",
-    "karma-jasmine-html-reporter": "^0.2.2",
-    "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.2.2"
