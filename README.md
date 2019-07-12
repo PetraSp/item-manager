@@ -1,8 +1,15 @@
-# ItemManger
+# Item Manager
 This Angular 7 app allows users to search second hand items by title, description, price and email.
-The listed items can be further ordered following the same criteria. Users can add selected items to their favorite list and remove them from there without having to close the modal.
- 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.7.
+
+### Features: 
+* Order the listed items 
+* Add selected items to favorites
+* List your favorite items and remove them from your favorite list
+
+### Technologies
+Project is created with:
+* Angular version: 7.3.7
+* Jest version: 24.0.0
 
 ## Get started
 
@@ -42,3 +49,4 @@ to execute the unit tests with Jest.
 
 * I used virtual scroll [ngx-virtual-scroller](https://www.npmjs.com/package/ngx-virtual-scroller) to display a virtual, "infinite" list of items.
 
+* UI components are made with [Angular Material](https://material.angular.io/) 
