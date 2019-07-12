@@ -2,9 +2,9 @@
 This Angular 7 app allows users to search second hand items by title, description, price and email.
 
 ### Features: 
-* Order the listed items 
-* Add selected items to favorites
-* List your favorite items and remove them from your favorite list
+* order the listed items 
+* add selected items to favorites
+* list favorite items and remove them from the favorite list.
 
 ### Technologies
 Project is created with:
@@ -49,4 +49,4 @@ to execute the unit tests with Jest.
 
 * I used virtual scroll [ngx-virtual-scroller](https://www.npmjs.com/package/ngx-virtual-scroller) to display a virtual, "infinite" list of items.
 
-* UI components are made with [Angular Material](https://material.angular.io/) 
+* UI components are made with [Angular Material](https://material.angular.io/). 
